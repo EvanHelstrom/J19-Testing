@@ -1,0 +1,18 @@
+<html>
+  <script type="text/javascript">
+   // Function written in Javascript to run when page loads
+     window.onload=function(){
+       //if the URL that caused the page to load contains ?beer
+       if(document.URL.indexOf("?beer") >= 0){
+         //Finds the button on the page using its ID
+         var element = document.getElementById('beer-button');
+         //Clicks the element
+         element.click()
+       }
+     }
+  </script>
+  <!-- Below this is just a mockup button. You can ignore this. -->
+  <button href='' id="button">
+    Click Here
+  </button>
+</html>
