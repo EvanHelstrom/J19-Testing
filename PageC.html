@@ -1,0 +1,64 @@
+<!-- Start cookieyes banner --> 
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/9775f2d245f9255ba586108f/script.js"></script> 
+<!-- End cookieyes banner -->
+
+
+<!-- Start Rolex Cookie Consent Script --> 
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<script>
+	(function($) {
+		$(document).ready(function() {
+			function enableTracking() {
+				if ($("#rlx-corner").length) {
+					document.getElementById("rlx-corner").contentWindow.postMessage("consentTrue","https://corners.Rolex.com");
+					document.getElementById("rlx-corner").contentWindow.postMessage("consentValidation", "https://corners.Rolex.com");
+				}
+			}
+
+			function disableTracking() {
+				if ($("#rlx-corner").length) {
+					document.getElementById("rlx-corner").contentWindow.postMessage("consentFalse","https://corners.Rolex.com");
+				}
+			}
+
+			function setRolexCookie() {
+				if (!Cookies.get('rlx-consent')) {
+					Cookies.set('rlx-consent', false, { path: '/', expires: 30 });
+				}
+
+				console.log(cookieyes._ckyConsentStore.get('performance'));
+
+				if (cookieyes._ckyConsentStore.get('performance') === 'yes') {
+					Cookies.set('rlx-consent', true, { path: '/', expires: 30 });
+				} else {
+					Cookies.set('rlx-consent', false, { path: '/', expires: 30 });
+				}
+
+				$(document).on('click', '.cky-btn-preferences', function() {
+					console.log(cookieyes._ckyConsentStore.get('performance'));
+
+					if (cookieyes._ckyConsentStore.get('performance') === 'yes') {
+						Cookies.set('rlx-consent', true, { path: '/', expires: 30 });
+						enableTracking();
+						console.log('enable tracking');
+					} else {
+						Cookies.set('rlx-consent', false, { path: '/', expires: 30 });
+						disableTracking();
+						console.log('disable tracking');
+					}
+				});
+			}
+
+			setRolexCookie();
+		});
+	})(jQuery);
+</script>
+<style>
+	.cky-accordion-header-des p {
+		margin: 0 !important;
+	}
+	.cky-cookie-des-table p {
+		margin: 0 !important;
+	}
+</style>
+<!-- END Rolex Cookie Consent Script --> 
